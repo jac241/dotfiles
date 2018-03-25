@@ -10,19 +10,20 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
+Plugin 'vim-scripts/a.vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'shinzui/vim-idleFingers'
 Plugin 'airblade/vim-gitgutter'
-Plugin 'Valloric/YouCompleteMe'
 Plugin 'tpope/vim-endwise'
 Plugin 'derekwyatt/vim-scala'
-Plugin 'kien/rainbow_parentheses.vim'
-Plugin 'tpope/vim-fireplace'
-Plugin 'vim-scripts/paredit.vim'
 Plugin 'pangloss/vim-javascript'
+Plugin 'mxw/vim-jsx'
+Plugin 'rdnetto/YCM-Generator'
+Plugin 'elixir-lang/vim-elixir'
+Plugin 'ervandew/supertab'
 
 " The following are examples of different formats supported.
 " All of your Plugins must be added before the following line
@@ -41,10 +42,6 @@ filetype plugin indent on    " required
 " Put your non-Plugin stuff after this line
 map <silent> <LocalLeader>nt :NERDTreeToggle<CR>
 let mapleader = ","
-
-if $COLORTERM == 'gnome-terminal'
-  set t_Co=256
-endif
 
 colorscheme idleFingers
 
@@ -71,3 +68,14 @@ set nu
 let g:syntastic_python_python_exec = 'python3'
 set colorcolumn=80
 set noswapfile
+
+"ctrlp
+let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+
+"YouCompleteMe
+let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
+let g:ycm_autoclose_preview_window_after_insertion = 1
+let g:ycm_server_python_interpreter = '/home/jcastiglione/anaconda/bin/python2'
+
+syntax on
+set t_Co=256
